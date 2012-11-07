@@ -124,10 +124,9 @@ Item {
                     logo: "http://www.kanal9play.se/themes/kanal9/images/logo.png"
                 }
                 ListElement {
-                    title: "Äftonbladet-TV"
+                    title: "Aftonbladet-TV"
                     module: "aftonbladet"
                     logo: "http://www.tv14.net/wp-content/uploads/2010/10/Aftonbladet.jpg"
-                    //logo: "http://profile.ak.fbcdn.net/hprofile-ak-prn1/174895_128448967181272_893081_q.jpg"
                 }
             }
 
