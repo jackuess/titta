@@ -1,1 +1,4 @@
 *.pro.user*
+android/assets/
+android/bin/
+android/libs/
