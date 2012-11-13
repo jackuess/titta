@@ -2,3 +2,5 @@
 android/assets/
 android/bin/
 android/libs/
+android/build.xml
+android/ant.properties

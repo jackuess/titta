@@ -1,4 +1,4 @@
-/home/chucky/utveckling/titta/android/gen/org/kde/necessitas/example/titta/R.java \
+/home/chucky/utveckling/titta/android/gen/org/wrutschkow/titta/R.java \
  : /home/chucky/utveckling/titta/android/res/values-fr/strings.xml \
 /home/chucky/utveckling/titta/android/res/values-et/strings.xml \
 /home/chucky/utveckling/titta/android/res/values-fa/strings.xml \
