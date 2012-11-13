@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QUrl>
 #include <QProcess>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 class RtmpHandler : public QObject
 {
@@ -17,9 +19,20 @@ public slots:
     
 private:
     void installRtmpGw();
+    void startRtmpGw(const QString &rtmpUrl);
+    quint16 freePort();
 
     QProcess rtmpGw;
     QString rtmpGwPath;
+    QString stdErrBuffer;
+    QNetworkAccessManager *nam;
+
+private slots:
+    void rtmpGwError(QProcess::ProcessError error);
+    void rtmpGwFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void readStdErr();
+    void startPlayer();
+    void onRtmpError(QNetworkReply::NetworkError error);
 };
 
 #endif // RTMPHANDLER_H
