@@ -3,7 +3,7 @@ QMAKE_CXXFLAGS += -std=gnu++0x
 QT       += core gui
 QT       += network
 
-QT_PLUGIN += qsvg
+#QT_PLUGIN += qsvg
 
 android {
     LIBS += -L"/home/chucky/src/tidy-html5-android/libs/armeabi"
