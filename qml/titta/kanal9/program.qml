@@ -14,7 +14,6 @@ ListView {
         id: indexModel
 
         onStatusChanged: list.statusChanged(status)
-        onSourceChanged: console.log(source)
 
         query: '//div[@class="k5-video-teasers-grid"]//table[not(@width)]//td//a'
 
@@ -37,11 +36,6 @@ ListView {
         }
     }
     delegate: ListItem {
-        fontPixelSize: 14
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: ["#444","#444"][model.index%2] }
-            GradientStop { position: 1.0; color: ["#222","#666"][model.index%2] }
-        }
         imgSource: model.thumb
         text: model.title.slim()
 

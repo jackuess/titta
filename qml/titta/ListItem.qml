@@ -3,7 +3,7 @@ import QtQuick 1.1
 import "common.js" as Common
 
 Rectangle {
-    id: listitem
+    id: listItem
 
     property alias text: label.text
     property alias textColor: label.color
@@ -13,17 +13,21 @@ Rectangle {
 
     signal clicked()
 
-    height: 70
+    height: Math.max(label.height + 20, 70)
     width: parent.width
-    color: "#222"
+    color: ["#222", "#444"][model.index%2]
+//    gradient: Gradient {
+//        GradientStop { position: 0.0; color: ["#555","#333"][model.index%2] }
+//        GradientStop { position: 1.0; color: ["#111","#777"][model.index%2] }
+//    }
     Image {
         id: img
 
+        anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 10
-        anchors.verticalCenter: parent.verticalCenter
-        height: parent.height - 20
-        y: 5
+        height: 50
+        y: label.height > img.height ? label.height/2 : 10
 
         fillMode: Image.PreserveAspectFit
     }
@@ -32,14 +36,14 @@ Rectangle {
         id: label
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: parent.height/5
+        anchors.leftMargin: 10
         width: parent.width - img.width - img.anchors.rightMargin - anchors.leftMargin
         color: "#eee";
-        font.pixelSize: parent.height/3.5
+        font.pixelSize: 16
         wrapMode: Text.WordWrap
     }
     MouseArea {
         anchors.fill: parent
-        onClicked: listitem.clicked()
+        onClicked: listItem.clicked()
     }
 }

@@ -132,10 +132,6 @@ Item {
 
             delegate: ListItem {
                 fontBold: true
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: ["#555","#333"][model.index%2] }
-                    GradientStop { position: 1.0; color: ["#111","#777"][model.index%2] }
-                }
                 imgSource: model.logo
                 text: model.title
 
@@ -154,8 +150,6 @@ Item {
                         }
                     };
                     ViewStack.pushFactory(newFactory);
-                    //Qt.openUrlExternally("http://0.0.0.0:8085");
-                    //Qt.openUrlExternally("rtmp://bajs");
                 }
             }
         }

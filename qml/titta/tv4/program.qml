@@ -62,11 +62,6 @@ Item {
             }
         }
         delegate: ListItem {
-            fontPixelSize: 14
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: ["#555","#333"][model.index%2] }
-                GradientStop { position: 1.0; color: ["#111","#777"][model.index%2] }
-            }
             imgSource: {
                 var url = model.image;
                 var pairs = url.split("&amp;");

@@ -39,12 +39,6 @@ ListView {
         }
     }
     delegate: ListItem {
-        height: 220
-        fontPixelSize: 14
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: ["#444","#444"][model.index%2] }
-            GradientStop { position: 1.0; color: ["#222","#666"][model.index%2] }
-        }
         imgSource: model.thumb
         text: "<strong>" + model.title.slim() + "</strong><br/><small>" + model.description + "</small>"
 

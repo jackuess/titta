@@ -33,12 +33,6 @@ ListView {
         }
     }
     delegate: ListItem {
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: ["#555","#333"][model.index%2] }
-            GradientStop { position: 1.0; color: ["#111","#777"][model.index%2] }
-        }
-
-        fontPixelSize: 16
         text: model.text.slim()
         imgSource: model.thumb.startsWith("http://") ? model.thumb : "http://svtplay.se" + model.thumb
         onClicked: {
