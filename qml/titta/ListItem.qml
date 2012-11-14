@@ -40,10 +40,14 @@ Rectangle {
         width: parent.width - img.width - img.anchors.rightMargin - anchors.leftMargin
         color: "#eee";
         font.pixelSize: 16
+        font.family: "Roboto"
         wrapMode: Text.WordWrap
     }
     MouseArea {
         anchors.fill: parent
         onClicked: listItem.clicked()
+        onCanceled: listItem.color = ["#222", "#444"][model.index%2]
+        onEntered: listItem.color = ["#444", "#222"][model.index%2]
+        onExited: listItem.color = ["#222", "#444"][model.index%2]
     }
 }
