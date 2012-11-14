@@ -45,7 +45,7 @@ ListView {
         onClicked: {
             var newFactory = {
                 loader: currentView,
-                url: "http://pirateplay.se/api/get_streams.xml?url=" + "rtsphttp://kanal5play.se" + model.link,
+                url: "http://pirateplay.se/api/get_streams.xml?url=" + "http://kanal5play.se" + model.link,
                 source: "../pirateplay.qml",
                 callback: function () {
                     this.loader.source = this.source;
