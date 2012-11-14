@@ -14,7 +14,7 @@ Item {
     Component.onCompleted: ViewStack.setRoot(root)
 
     Keys.onPressed: {
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Backspace || event.key === Qt.Key_Menu || event.key === Qt.Key_Close) {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Close) {
             event.accepted = true;
             if (ViewStack.factoryStack.length > 0) {
                 ViewStack.currentFactory = ViewStack.factoryStack.pop();
