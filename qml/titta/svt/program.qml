@@ -14,7 +14,7 @@ ListView {
     spacing: 0
     model: XmlListModel {
         id: programModel
-        query: '//div[@data-tabname="episodes"]//article'
+        query: '//div[@data-tabname="episodes" or @data-tabname="recommended"]//article'
 
         onStatusChanged: svtProgram.statusChanged(programModel.status)
 

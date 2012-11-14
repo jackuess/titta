@@ -6,46 +6,45 @@ import ".."
 
 ListView {
     id: list
-    spacing: 0
-    height: 1
-    //onContentHeightChanged: if (contentHeight > 0) height = contentHeight
 
     signal statusChanged(int newStatus)
 
-    model: XmlListModel {
-        id: indexModel
-        source: "tidy://www.svtplay.se/program"
-        query: "//li[@class=\"playListItem\"]/a"
+    Component.onCompleted: statusChanged(XmlListModel.Ready)
 
-        onStatusChanged: list.statusChanged(indexModel.status)
+    height: 1
 
-        XmlRole {
-            name: "text"
-            query: "string()"
+    model: ListModel {
+        ListElement {
+            title: "Program A-Ö"
+            module: "alfabetical"
+            url: "tidy://www.svtplay.se/program"
         }
-        XmlRole {
-            name: "link"
-            query: "@href/string()"
+        ListElement {
+            title: "Rekommenderat"
+            module: "program"
+            url: "tidy://www.svtplay.se/?tab=recommended&sida=3"
+        }
+        ListElement {
+            title: "Senaste program"
+            module: "program"
+            url: "tidy://www.svtplay.se/?tab=episodes&sida=3"
         }
     }
+
     delegate: ListItem {
-        text: model.text.slim()
+        text: model.title
 
         onClicked: {
             var newFactory = {
                 loader: currentView,
-                url: "tidy://www.svtplay.se" + model.link,
+                url: model.url,
                 name: model.text,
-                source: Qt.resolvedUrl("program.qml"),
+                source: Qt.resolvedUrl(model.module + ".qml"),
                 callback: function () {
                     this.loader.source = this.source;
                     this.loader.item.model.source = this.url;
-                    this.loader.item.programName = this.name;
                 }};
             ViewStack.pushFactory(newFactory);
         }
     }
-    section.property: "text"
-    section.criteria: ViewSection.FirstCharacter
-    section.delegate: AzDelegate {}
 }

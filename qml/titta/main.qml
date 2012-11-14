@@ -40,7 +40,7 @@ Item {
             else
                 state = "StackEmpty";
         }
-        onLoaded: if (currentView.sourceComponent !== menuView) progress.state = "Loading"
+        onLoaded: if (currentView.sourceComponent !== menuView && currentView.source != Qt.resolvedUrl("svt/initial.qml")) progress.state = "Loading"
     }
 
     Connections {
