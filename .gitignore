@@ -4,3 +4,4 @@ android/bin/
 android/libs/
 android/build.xml
 android/ant.properties
+android/gen/org/wrutschkow/titta/BuildConfig.java
