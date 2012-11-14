@@ -33,4 +33,6 @@ ListView {
         text: model.quality.slim()
         onClicked: Qt.openUrlExternally(model.streamUrl)
     }
+
+    header: HeaderItem { text: "Välj kvalitet" }
 }
