@@ -2,16 +2,20 @@ import QtQuick 1.1
 
 import "viewstack.js" as ViewStack
 
-Item {
+Rectangle {
     id: root
 
     property bool isToplevel: true
 
     anchors.fill: parent
-
+    color: "#000"
+    gradient: Gradient {
+        GradientStop { position: 0.0; color: "#000" }
+        GradientStop { position: 1.0; color: "#272C33" }
+    }
     focus: true
 
-    Component.onCompleted: ViewStack.setRoot(root)
+    Component.onCompleted: { ViewStack.setRoot(root); ViewStack.setLoader(currentView); }
 
     Keys.onPressed: {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Close) {
@@ -51,9 +55,12 @@ Item {
             } else if (newStatus == XmlListModel.Error) {
                 console.log("Fel!");
             } else {
-                //if (typeof ViewStack.currentFactory.scroll !== "undefined")
-                //    scrollArea.verticalScrollBar.value = ViewStack.currentFactory.scroll;
-                progress.state = "Ready";
+                if (typeof ViewStack.currentFactory.scroll !== "undefined")
+                    currentView.item.contentY = ViewStack.currentFactory.scroll;
+                if (currentView.item.model.count > 0)
+                    progress.state = "Ready";
+                else
+                    progress.state = "NothingFound";
             }
         }
     }
@@ -62,17 +69,23 @@ Item {
         id: progress
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
+        color: "#eee"
+        font.family: "Roboto"
         font.pixelSize: 30
-        text: "Laddar..."
+        //text: "Laddar..."
         state: "Ready"
         states: [
             State {
                 name: "Loading"
-                PropertyChanges { target: progress; visible: true }
+                PropertyChanges { target: progress; visible: true ; text: "Laddar..."}
             },
             State {
                 name: "Ready"
                 PropertyChanges { target: progress; visible: false }
+            },
+            State {
+                name: "NothingFound"
+                PropertyChanges { target: progress; visible: true ; text: "Ingenting funnet"}
             }]
     }
 
@@ -131,7 +144,6 @@ Item {
             }
 
             delegate: ListItem {
-                fontBold: true
                 imgSource: model.logo
                 text: model.title
 

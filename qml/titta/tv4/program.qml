@@ -11,6 +11,7 @@ Item {
     signal statusChanged(int newStatus)
 
     property alias url: programModel.source
+    property alias model: programModel
     property string programName
 
     XmlListModel {
