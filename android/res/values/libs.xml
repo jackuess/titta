@@ -11,6 +11,7 @@
         <item>QtScript</item>
         <item>QtSql</item>
         <item>QtXml</item>
+        <item>QtOpenGL</item>
         <item>QtSvg</item>
         <item>QtXmlPatterns</item>
         <item>QtDeclarative</item>
