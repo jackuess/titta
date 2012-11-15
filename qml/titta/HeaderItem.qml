@@ -12,13 +12,15 @@ Rectangle {
 
     height: 40
     width: parent.width
-    color: "#181818"
+    color: "transparent" //"#181818"
 
     Text {
         id: label
-        anchors.horizontalCenter: parent.horizontalCenter
+        //anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+        x: 10
         color: "#eee"
+        font.family: "Roboto"
         font.pixelSize: 16
         font.bold: true
         wrapMode: Text.WordWrap
@@ -26,8 +28,8 @@ Rectangle {
 
     Rectangle {
         anchors.bottom: parent.bottom
-        height: 3
+        height: 2
         width: parent.width
-        color: "#252525"
+        color: "#33B5E5"
     }
 }

@@ -9,9 +9,10 @@ Rectangle {
         id: label
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        color: "#111";
+        color: "#eee";
         font {
             bold: true
+            family: "Roboto"
             pixelSize: 12
         }
         text: section

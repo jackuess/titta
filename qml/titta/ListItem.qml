@@ -15,11 +15,9 @@ Rectangle {
 
     height: Math.max(label.height + 20, 70)
     width: parent.width
-    color: ["#222", "#444"][model.index%2]
-//    gradient: Gradient {
-//        GradientStop { position: 0.0; color: ["#555","#333"][model.index%2] }
-//        GradientStop { position: 1.0; color: ["#111","#777"][model.index%2] }
-//    }
+    anchors.horizontalCenter: parent.horizontalCenter
+    color: "transparent"
+
     Image {
         id: img
 
@@ -43,11 +41,19 @@ Rectangle {
         font.family: "Roboto"
         wrapMode: Text.WordWrap
     }
+    Rectangle {
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "#373A3D"
+        width: parent.width - 20
+        height: 1
+    }
+
     MouseArea {
         anchors.fill: parent
         onClicked: listItem.clicked()
-        onCanceled: listItem.color = ["#222", "#444"][model.index%2]
-        onEntered: listItem.color = ["#444", "#222"][model.index%2]
-        onExited: listItem.color = ["#222", "#444"][model.index%2]
+        onCanceled: listItem.color = "transparent"
+        onEntered: listItem.color = "#0099cc"
+        onExited: listItem.color = "transparent"
     }
 }
