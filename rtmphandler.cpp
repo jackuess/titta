@@ -106,7 +106,8 @@ void RtmpHandler::startPlayer() {
     reply->deleteLater();
 
 #ifdef Q_OS_ANDROID
-    QDesktopServices::openUrl(QUrl(reply->url().toString() + "/test.flv"));
+    //am start -a android.intent.action.VIEW -d http://localhost:8080 -t video/flv
+    QDesktopServices::openUrl(QUrl(url + "/test.flv"));
 #else
     QProcess::startDetached("mplayer " + url);
 #endif
