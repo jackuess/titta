@@ -9,10 +9,10 @@ Rectangle {
 
     anchors.fill: parent
     color: "#000"
-    gradient: Gradient {
-        GradientStop { position: 0.0; color: "#000" }
-        GradientStop { position: 1.0; color: "#272C33" }
-    }
+//    gradient: Gradient {
+//        GradientStop { position: 0.0; color: "#000" }
+//        GradientStop { position: 1.0; color: "#272C33" }
+//    }
     focus: true
 
     Component.onCompleted: { ViewStack.setRoot(root); ViewStack.setLoader(currentView); }
@@ -70,7 +70,6 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         color: "#eee"
-        font.family: "Roboto"
         font.pixelSize: 30
         //text: "Laddar..."
         state: "Ready"

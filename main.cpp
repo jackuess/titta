@@ -11,6 +11,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QScopedPointer<QApplication> app(createApplication(argc, argv));
 
+#ifdef Q_OS_ANDROID
+    QFont roboto = QFont("Roboto");
+    app->setFont(roboto);
+#endif
+
     RtmpHandler handler;
     QDesktopServices::setUrlHandler("rtmp", &handler, "play");
     QDesktopServices::setUrlHandler("rtmpe", &handler, "play");

@@ -12,7 +12,6 @@ Rectangle {
         color: "#eee";
         font {
             bold: true
-            family: "Roboto"
             pixelSize: 12
         }
         text: section

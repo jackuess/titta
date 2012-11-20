@@ -38,7 +38,6 @@ Rectangle {
         width: parent.width - img.width - img.anchors.rightMargin - anchors.leftMargin
         color: "#eee";
         font.pixelSize: 16
-        font.family: "Roboto"
         wrapMode: Text.WordWrap
     }
     Rectangle {
